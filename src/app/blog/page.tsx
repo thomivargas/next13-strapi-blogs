@@ -34,7 +34,7 @@ interface Props {
 const Blog = async({searchParams}: Props) => {
   const {page} = searchParams;
   let pageNumber = page ? parseInt(page) : 1;
-  if (isNaN(pageNumber) || pageNumber < 1) {
+  if (isNaN(pageNumber) || pageNumber < 1 || pageNumber > 5) {
     pageNumber = 1;
   }
    const {data, pagination} = await getData(pageNumber);
